@@ -17,7 +17,7 @@ Para executar o protótipo localmente a partir do repositório, siga os passos a
 
 1.  **Clonagem do repositório:**
     ```bash
-    git clone [https://github.com/rjinakamura/sghss-frontend-renannakamura.git](https://github.com/rjinakamura/sghss-frontend-renannakamura.git)
+    git clone [https://github.com/rjinakamura/sghss-frontend-renannakamura.git]
     ```
 
 2.  **Instalação das dependências:**
