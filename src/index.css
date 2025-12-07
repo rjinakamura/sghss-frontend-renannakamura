@@ -1,0 +1,26 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  
+  /* Mantém a lógica de esquema de cores base */
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reset de margens e altura da página */
+body {
+  margin: 0;
+  /* Remove 'display: flex' e 'place-items: center' para o MUI gerenciar o layout */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Estilo de link de fallback */
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+}
