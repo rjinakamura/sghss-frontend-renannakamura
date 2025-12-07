@@ -7,67 +7,59 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+# SGHSS - Frontend (Protótipo)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Este documento contém as instruções para execução local do projeto e o guia para validação dos perfis de acesso.
 
-## Expanding the ESLint configuration
+## 🚀 Como executar o projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Para executar o protótipo localmente a partir do repositório, siga os passos abaixo:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1.  **Clonagem do repositório:**
+    ```bash
+    git clone [https://github.com/rjinakamura/sghss-frontend-renannakamura.git](https://github.com/rjinakamura/sghss-frontend-renannakamura.git)
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2.  **Instalação das dependências:**
+    Entre na pasta do projeto e execute:
+    ```bash
+    npm install
+    ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3.  **Execução do servidor de desenvolvimento:**
+    ```bash
+    npm run dev
+    ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+4.  **Acesso:**
+    Abra o navegador e acesse o endereço local indicado no terminal (geralmente `http://localhost:5173`).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🔐 Guia de Verificação de Perfis de Usuário
+
+Para validar o funcionamento do Controle de Acesso (RBAC) e as funcionalidades específicas de cada ator do sistema, utilize as credenciais de teste abaixo.
+
+> **Nota:** A senha padrão para todos os usuários é `123`.
+
+### 1. Perfil Administrador (Gestão Total)
+* **Login:** `admin@sghss.com`
+* **Senha:** `123`
+* **Características:**
+    * **Menu Lateral:** Deve visualizar todas as opções, incluindo "Profissionais" e "Relatórios" (exclusivas deste nível).
+    * **Acesso:** Consegue entrar em todas as telas e gerenciar o sistema.
+
+### 2. Perfil Médico (Visão Clínica)
+* **Login:** `medico@sghss.com`
+* **Senha:** `123`
+* **Características:**
+    * Foca no atendimento ao paciente.
+    * Tem acesso às ferramentas operacionais.
+    * **Bloqueio:** Não tem acesso a áreas estratégicas ou administrativas (como Relatórios gerenciais).
+
+### 3. Perfil Paciente (Autoatendimento)
+* **Login:** `paciente@sghss.com`
+* **Senha:** `123`
+* **Características:**
+    * Valida a experiência do cliente final.
+    * **Fluxo:** Navegação completamente diferente dos funcionários da clínica, focada em agendamentos e histórico pessoal.
